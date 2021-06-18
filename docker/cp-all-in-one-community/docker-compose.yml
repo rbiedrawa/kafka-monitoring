@@ -68,6 +68,42 @@ services:
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
       KAFKAREST_OPTS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/confluent_rest_proxy.yml
 
+  ksqldb-server:
+    image: confluentinc/cp-ksqldb-server:6.2.0
+    hostname: ksqldb-server
+    container_name: ksqldb-server
+    depends_on:
+      - kafka
+      - connect
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./config/jmx-exporter/:/opt/prometheus/
+    environment:
+      KSQL_CONFIG_DIR: "/etc/ksql"
+      KSQL_BOOTSTRAP_SERVERS: "kafka:29092"
+      KSQL_HOST_NAME: ksqldb-server
+      KSQL_LISTENERS: "http://0.0.0.0:8088"
+      KSQL_CACHE_MAX_BYTES_BUFFERING: 0
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+      KSQL_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+      KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
+#      KSQL_KSQL_CONNECT_URL: "http://connect:8083"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_REPLICATION_FACTOR: 1
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: 'true'
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
+      KSQL_OPTS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/confluent_ksql.yml
+
+  ksqldb-cli:
+    image: confluentinc/cp-ksqldb-cli:6.2.0
+    container_name: ksqldb-cli
+    depends_on:
+      - kafka
+#      - connect
+      - ksqldb-server
+    entrypoint: /bin/sh
+    tty: true
+
   kafka-lag-exporter:
     image: lightbend/kafka-lag-exporter:0.6.7
     container_name: kafka-lag-exporter
