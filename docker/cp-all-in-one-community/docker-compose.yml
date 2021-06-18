@@ -50,6 +50,24 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
       EXTRA_ARGS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/confluent_schema_registry.yml
 
+  rest-proxy:
+    image: confluentinc/cp-kafka-rest:6.2.0
+    hostname: rest-proxy
+    container_name: rest-proxy
+    depends_on:
+      - kafka
+      - schema-registry
+    ports:
+      - 8082:8082
+    volumes:
+      - ./config/jmx-exporter/:/opt/prometheus/
+    environment:
+      KAFKA_REST_HOST_NAME: rest-proxy
+      KAFKA_REST_BOOTSTRAP_SERVERS: 'kafka:29092'
+      KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
+      KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
+      KAFKAREST_OPTS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/confluent_rest_proxy.yml
+
   kafka-lag-exporter:
     image: lightbend/kafka-lag-exporter:0.6.7
     container_name: kafka-lag-exporter
