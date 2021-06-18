@@ -9,6 +9,13 @@ spring:
     consumer:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    streams:
+      application-id: "event_kstream"
+      properties:
+        commit.interval.ms: 100
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
 management:
   endpoint:
     health:
@@ -16,6 +23,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: metrics,health,info,env,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
 server:
   port: 7777
