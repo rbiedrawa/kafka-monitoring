@@ -28,18 +28,29 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+  kafkasetup:
+    image: confluentinc/cp-kafka:6.2.0
+    hostname: kafkasetup
+    container_name: kafkasetup
+    depends_on:
+      - kafka
+    restart: "no"
+    entrypoint: [ "bash", "-c", "kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 0 --partitions 1 --topic kminion-end-to-end"]
+
   kafka-minion:
     image: quay.io/cloudhut/kminion:master
     hostname: kafka-minion
     container_name: kafka-minion
     depends_on:
-      - zookeeper
-      - kafka
+      - kafkasetup
     ports:
       - 8080:8080
     environment:
       KAFKA_BROKERS: kafka:29092
+      CONFIG_FILEPATH: /etc/kminion/config.yaml
     restart: unless-stopped
+    volumes:
+      - ./config/kminion/config.yaml:/etc/kminion/config.yaml
 
   prometheus:
     image: prom/prometheus:v2.26.0
@@ -51,7 +62,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana:7.5.2
@@ -67,6 +78,6 @@ services:
       - "GF_SECURITY_ADMIN_USER=admin"
       - "GF_SECURITY_ADMIN_PASSWORD=password"
     volumes:
-      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./config/grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - prometheus
