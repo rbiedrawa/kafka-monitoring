@@ -5,7 +5,7 @@ services:
     container_name: burrow
     image: linkedin/burrow:v1.3.6
     volumes:
-      - ${PWD}/docker-config:/etc/burrow/
+      - ./config:/etc/burrow/
     ports:
       - 8005:8000
     depends_on:
@@ -16,7 +16,7 @@ services:
   burrow-dashboard:
     hostname: burrow-dashboard
     container_name: burrow-dashboard
-    image: joway/burrow-dashboard:latest
+    image: joway/burrow-dashboard:1.0.4
     depends_on:
       - burrow
     ports:
@@ -27,7 +27,7 @@ services:
   burrowUI:
     hostname: burrowUI
     container_name: burrowUI
-    image: generalmills/burrowui
+    image: generalmills/burrowui:1.1.0
     depends_on:
       - burrow
     ports:
