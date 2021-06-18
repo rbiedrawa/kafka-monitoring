@@ -1,0 +1,24 @@
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: "kafka"
+    static_configs:
+      - targets:
+          - "kafka:9404"
+        labels:
+          env: "dev"
+  - job_name: "zookeeper"
+    static_configs:
+      - targets:
+          - "zookeeper:9404"
+        labels:
+          env: "dev"
+
+  - job_name: "kafka-lag-exporter"
+    static_configs:
+      - targets:
+          - "kafka-lag-exporter:8000"
+        labels:
+          env: "dev"
