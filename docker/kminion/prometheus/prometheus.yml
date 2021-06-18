@@ -1,0 +1,11 @@
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'kafka-minion'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['kafka-minion:8080']
+        labels:
+          application: hello-world-service
