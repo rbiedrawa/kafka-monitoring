@@ -1,0 +1,63 @@
+version: "2"
+services:
+  burrow:
+    hostname: burrow
+    container_name: burrow
+    image: linkedin/burrow:v1.3.6
+    volumes:
+      - ${PWD}/docker-config:/etc/burrow/
+    ports:
+      - 8005:8000
+    depends_on:
+      - zookeeper
+      - broker
+    restart: always
+
+  burrow-dashboard:
+    hostname: burrow-dashboard
+    container_name: burrow-dashboard
+    image: joway/burrow-dashboard:latest
+    depends_on:
+      - burrow
+    ports:
+      - 8006:80
+    environment:
+      BURROW_BACKEND: "http://burrow:8000"
+
+  burrowUI:
+    hostname: burrowUI
+    container_name: burrowUI
+    image: generalmills/burrowui
+    depends_on:
+      - burrow
+    ports:
+      - 8007:3000
+    environment:
+      BURROW_HOME: "http://burrow:8000/v3/kafka"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.2.0
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  broker:
+    image: confluentinc/cp-kafka:6.2.0
+    hostname: broker
+    container_name: broker
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9101:9101"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
