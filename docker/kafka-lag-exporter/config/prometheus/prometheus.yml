@@ -1,0 +1,15 @@
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'kafka-lag-exporter'
+    metrics_path: '/'
+    static_configs:
+      - targets: ['kafka-lag-exporter:8000']
+        labels:
+          application: kafka-lag-exporter
+          # Since we are not running in k8s lets provide some values to dashboard :>
+          namespace: dev
+          kubernetes_pod_name: kafka:29092
+          app_kubernetes_io_instance: kafka-lag-exporter
