@@ -28,21 +28,12 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-  kafkasetup:
-    image: confluentinc/cp-kafka:6.2.0
-    hostname: kafkasetup
-    container_name: kafkasetup
-    depends_on:
-      - kafka
-    restart: "no"
-    entrypoint: [ "bash", "-c", "kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 0 --partitions 1 --topic kminion-end-to-end"]
-
   kafka-minion:
     image: quay.io/cloudhut/kminion:master
     hostname: kafka-minion
     container_name: kafka-minion
     depends_on:
-      - kafkasetup
+      - kafka
     ports:
       - 8080:8080
     environment:

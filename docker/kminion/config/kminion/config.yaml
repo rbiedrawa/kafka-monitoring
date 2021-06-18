@@ -76,7 +76,7 @@ minion:
   # EndToEnd Metrics
   # When enabled, kminion creates a topic which it produces to and consumes from, to measure various advanced metrics. See docs for more info
   endToEnd:
-    enabled: true
+    enabled: false
     # How often to send end-to-end test messages
     probeInterval: 100ms
     topicManagement:
