@@ -43,3 +43,11 @@ scrape_configs:
           - "ksqldb-server:9404"
         labels:
           env: "dev"
+
+  - job_name: "connect"
+    static_configs:
+      - targets:
+          - "connect:9404"
+        labels:
+          env: "dev"
+          cluster: "cluster1"
