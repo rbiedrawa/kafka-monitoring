@@ -218,7 +218,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg (sum by (kubernetes_pod_name) (rate(kminion_kafka_consumer_group_offset_commits_total{group_id=\"$consumerGroup\"}[1m])))",
+          "expr": "avg (sum by (kubernetes_pod_name) (rate(kminion_kafka_consumer_group_topic_offset_sum{group_id=\"$consumerGroup\"}[1m])))",
           "format": "time_series",
           "instant": false,
           "interval": "",

@@ -29,7 +29,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   kafka-minion:
-    image: quay.io/cloudhut/kminion:master
+    image: quay.io/cloudhut/kminion:v2.1.0
     hostname: kafka-minion
     container_name: kafka-minion
     depends_on:

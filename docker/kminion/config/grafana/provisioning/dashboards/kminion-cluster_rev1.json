@@ -688,7 +688,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg by (group_id) (rate(kminion_kafka_consumer_group_offset_commits_total{group_id=~\"$topOffsetCommitters\"}[$__rate_interval]))",
+          "expr": "avg by (group_id) (rate(kminion_kafka_consumer_group_topic_offset_sum{group_id=~\"$topOffsetCommitters\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "{{group_id}}",
           "refId": "A"
@@ -871,7 +871,7 @@
         "allValue": null,
         "current": {},
         "datasource": "Prometheus",
-        "definition": "query_result(topk(5, avg by (group_id) (avg_over_time(kminion_kafka_consumer_group_offset_commits_total[${__range_s}s]))))",
+        "definition": "query_result(topk(5, avg by (group_id) (avg_over_time(kminion_kafka_consumer_group_topic_offset_sum[${__range_s}s]))))",
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -879,7 +879,7 @@
         "multi": true,
         "name": "topOffsetCommitters",
         "options": [],
-        "query": "query_result(topk(5, avg by (group_id) (avg_over_time(kminion_kafka_consumer_group_offset_commits_total[${__range_s}s]))))",
+        "query": "query_result(topk(5, avg by (group_id) (avg_over_time(kminion_kafka_consumer_group_topic_offset_sum[${__range_s}s]))))",
         "refresh": 1,
         "regex": ".*group_id=\"(.*?)\".*",
         "skipUrlSync": false,

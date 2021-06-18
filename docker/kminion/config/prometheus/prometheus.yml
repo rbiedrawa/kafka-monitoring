@@ -9,3 +9,4 @@ scrape_configs:
       - targets: ['kafka-minion:8080']
         labels:
           application: hello-world-service
+          kubernetes_pod_name: hello-world-service
