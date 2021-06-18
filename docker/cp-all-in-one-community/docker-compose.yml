@@ -34,6 +34,21 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       EXTRA_ARGS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/kafka_broker.yml
 
+  schema-registry:
+    image: confluentinc/cp-schema-registry:6.2.0
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - kafka
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./config/jmx-exporter/:/opt/prometheus/
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka:29092'
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      EXTRA_ARGS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/confluent_schema_registry.yml
 
   kafka-lag-exporter:
     image: lightbend/kafka-lag-exporter:0.6.7
