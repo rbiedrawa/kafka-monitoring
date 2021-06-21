@@ -24,9 +24,9 @@ Please refer to the individual readme files for further instructions how to buil
 * [Burrow](./docker/burrow)
   <table>
     <tr>
-    <td>Burrow Dashboard</td>
-    <td>BurrowUI - Consumers</td>
-    <td>BurrowUI - total-graph</td>
+    <td>Burrow Dashboard - Home Page</td>
+    <td>BurrowUI - Home Page</td>
+    <td>BurrowUI - Total Lag Graph</td>
     </tr>
     <tr>
     <td><img src="./_docs/img/burrow-dashboard.png" width="250" /></td>
@@ -48,9 +48,9 @@ Please refer to the individual readme files for further instructions how to buil
 * [KMinion](./docker/kminion)
   <table>
     <tr>
-      <td>KMinion Cluster</td>
-       <td>kminion-consumer</td>
-       <td>kminion-topic-dashboard</td>
+      <td>Cluster Dashboard </td>
+       <td>Consumer Group Dashboard</td>
+       <td>Topic Dashboard</td>
     </tr>
     <tr>
       <td><img src="./_docs/img/kminion-cluster-dashboard.png" width="250" /></td>
@@ -60,7 +60,7 @@ Please refer to the individual readme files for further instructions how to buil
    </table>
 
 * [Confluent Platform Community Edition](./docker/cp-all-in-one-community)
-  
+
 * [Kowl - Apache Kafka Web UI](./docker/kowl)
 
 ## References
