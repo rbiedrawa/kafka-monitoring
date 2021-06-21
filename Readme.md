@@ -8,9 +8,10 @@ The examples in this repository are only for testing purposes only.
 
 ## Getting Started
 
-This repository contains multiple docker-compose stacks, which includes all necessary monitoring infrastructure.
+This repository contains multiple docker-compose stacks which includes all necessary monitoring infrastructure setup.
 
-Each sample demonstrates how to collect and monitor useful metrics and visualize records using various types of tools available online.
+Each sample demonstrates how to collect and monitor useful metrics and visualize records using various types of tools
+available online.
 
 Docker compose stacks can be found under [docker](./docker) directory.
 
@@ -21,44 +22,46 @@ Please refer to the individual readme files for further instructions how to buil
 **Available demos:**
 
 * [Burrow](./docker/burrow)
+  <table>
+    <tr>
+    <td>Burrow Dashboard</td>
+    <td>BurrowUI - Consumers</td>
+    <td>BurrowUI - total-graph</td>
+    </tr>
+    <tr>
+    <td><img src="./_docs/img/burrow-dashboard.png" width="250" /></td>
+    <td><img src="/_docs/img/burrowUI-consumers.png" width="250" /> </td>
+    <td><img src="/_docs/img/burrowUI-total-graph.png" width="250" /></td>
+    </tr>
+  </table>
+
 * [Kafka Lag Exporter](./docker/kafka-lag-exporter)
+  <table>
+    <tr>
+      <td>Grafana Kafka Lag Exporter</td>
+    </tr>
+    <tr>
+      <td><img src="./_docs/img/grafana-kafka-lag-exporter.png" width="250" /></td>
+    </tr>
+   </table>  
+
 * [KMinion](./docker/kminion)
+  <table>
+    <tr>
+      <td>KMinion Cluster</td>
+       <td>kminion-consumer</td>
+       <td>kminion-topic-dashboard</td>
+    </tr>
+    <tr>
+      <td><img src="./_docs/img/kminion-cluster-dashboard.png" width="250" /></td>
+      <td><img src="/_docs/img/kminion-consumer-group.png" width="250" /> </td>
+      <td><img src="/_docs/img/kminion-topic-dashboard.png" width="250" /></td>
+    </tr>
+   </table>
+
 * [Confluent Platform Community Edition](./docker/cp-all-in-one-community)
+  
 * [Kowl - Apache Kafka Web UI](./docker/kowl)
-
-
-## Sample Screenshots of available dashboards
-
-### KMinion
-
-<table>
-  <tr>
-    <td>KMinion Cluster</td>
-     <td>kminion-consumer</td>
-     <td>kminion-topic-dashboard</td>
-  </tr>
-  <tr>
-    <td><img src="./_docs/img/kminion-cluster-dashboard.png" width="250" /></td>
-    <td><img src="/_docs/img/kminion-consumer-group.png" width="250" /> </td>
-    <td><img src="/_docs/img/kminion-topic-dashboard.png" width="250" /></td>
-  </tr>
- </table>
-
-### Burrow
-
-<table>
-  <tr>
-    <td>KMinion Cluster</td>
-     <td>kminion-consumer</td>
-     <td>kminion-topic-dashboard</td>
-  </tr>
-  <tr>
-    <td><img src="./_docs/img/kminion-cluster-dashboard.png" width="250" /></td>
-    <td><img src="/_docs/img/kminion-consumer-group.png" width="250" /> </td>
-    <td><img src="/_docs/img/kminion-topic-dashboard.png" width="250" /></td>
-  </tr>
- </table>
-
 
 ## References
 
