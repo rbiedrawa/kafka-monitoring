@@ -5,9 +5,7 @@ BurrowUI.
 
 ## Components
 
-* [Burrow](https://github.com/linkedin/Burrow)
-* [BurrowUI](https://github.com/GeneralMills/BurrowUI)
-* [Burrow Dashboard](https://github.com/joway/burrow-dashboard)
+* [Kafka Lag Exporter](https://github.com/linkedin/Burrow)
 
 ## Dashboards
 
@@ -60,8 +58,8 @@ BurrowUI.
 
 * Check if all components are healthy.
   ```shell
-  
   docker compose ps
+  
   #   NAME                   SERVICE                STATUS              PORTS
   # burrow                 burrow                 running             0.0.0.0:8005->8000/tcp, :::8005->8000/tcp
   # burrow-dashboard       burrow-dashboard       running             0.0.0.0:8006->80/tcp, :::8006->80/tcp
@@ -95,5 +93,7 @@ BurrowUI.
 ## References
 
 * [Linkedin/Burrow](https://github.com/linkedin/Burrow)
+  
 * [GeneralMills/BurrowUI](https://github.com/GeneralMills/BurrowUI)
+  
 * [Joway/BurrowDashboard](https://github.com/joway/burrow-dashboard)
