@@ -47,9 +47,11 @@ This sample demonstrates how to monitor consumer lag using `Kafka Lag Exporter` 
   # zookeeper              zookeeper              running             0.0.0.0:2181->2181/tcp, :::2181->2181/tcp, 2888/tcp, 3888/tcp
   ```
 
-* Open your web browser and go to Grafana [login page](http://localhost:3000/). Inside login page, enter `admin` for username and `password` as a password.
+* Open your web browser and go to Grafana [login page](http://localhost:3000/).
+    * Username: `admin`
+    * Password: `password`
 
-* Open **Kafka Lag Exporter** dashboard.
+* Open **Kafka Lag Exporter** dashboard and investigate exposed metrics.
 
 * Stop docker compose stack.
   ```shell
@@ -67,6 +69,6 @@ This sample demonstrates how to monitor consumer lag using `Kafka Lag Exporter` 
 ## References
 
 * [Lightbend Kafka Lag Exporter](https://github.com/lightbend/kafka-lag-exporter)
-* [Kafka_Lag_Exporter_Dashboard - Grafana Dashboard](https://github.com/lightbend/kafka-lag-exporter/blob/master/grafana/Kafka_Lag_Exporter_Dashboard.json)
+* [Kafka Lag Exporter Grafana Dashboard](https://github.com/lightbend/kafka-lag-exporter/blob/master/grafana/Kafka_Lag_Exporter_Dashboard.json)
 * [Prometheus](https://prometheus.io/)
 * [Grafana](https://grafana.com/)
