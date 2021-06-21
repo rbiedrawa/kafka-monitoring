@@ -87,8 +87,8 @@ Grafana dashboards used in this demo can be found [here](./config/grafana/provis
 ## References
 
 * [KMinion - Prometheus Exporter for Apache Kafka](https://github.com/cloudhut/kminion)
-* [Cluster Dashboard](https://grafana.com/grafana/dashboards/14012)
-* [Consumer Group Dashboard](https://grafana.com/grafana/dashboards/14014)
-* [Topic Dashboard](https://grafana.com/grafana/dashboards/14013)
+* [KMinion Cluster Dashboard](https://grafana.com/grafana/dashboards/14012)
+* [KMinion Consumer Group Dashboard](https://grafana.com/grafana/dashboards/14014)
+* [KMinion Topic Dashboard](https://grafana.com/grafana/dashboards/14013)
 * [Prometheus](https://prometheus.io/)
 * [Grafana](https://grafana.com/)
