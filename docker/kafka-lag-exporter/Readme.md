@@ -2,6 +2,8 @@
 
 This sample demonstrates how to monitor consumer lag using `Kafka Lag Exporter` and visualize metrics via Grafana.
 
+Grafana dashboard used in this demo can be found [here](./config/grafana/provisioning/dashboards)
+
 ## Components
 
 * [Kafka Lag Exporter](https://github.com/lightbend/kafka-lag-exporter)

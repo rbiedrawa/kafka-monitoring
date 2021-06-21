@@ -28,20 +28,17 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-  kafka-minion:
-    image: quay.io/cloudhut/kminion:v2.1.0
-    hostname: kafka-minion
-    container_name: kafka-minion
+  kafka-monitoring-app:
+    image: com.rbiedrawa/kafka-monitoring:0.0.1-SNAPSHOT
+    container_name: kafka-monitoring-app
+    restart: always
     depends_on:
       - kafka
     ports:
-      - 8080:8080
+      - 7777:7777
     environment:
-      KAFKA_BROKERS: kafka:29092
-      CONFIG_FILEPATH: /etc/kminion/config.yaml
-    restart: unless-stopped
-    volumes:
-      - ./config/kminion/config.yaml:/etc/kminion/config.yaml
+      spring.profiles.active: docker
+      spring.kafka.bootstrap-servers: "kafka:29092"
 
   prometheus:
     image: prom/prometheus:v2.26.0
@@ -64,7 +61,7 @@ services:
     ports:
       - 3000:3000
     environment:
-#      - "GF_INSTALL_PLUGINS=grafana-piechart-panel"
+      #      - "GF_INSTALL_PLUGINS=grafana-piechart-panel"
       - "GF_USERS_ALLOW_SIGN_UP=false"
       - "GF_SECURITY_ADMIN_USER=admin"
       - "GF_SECURITY_ADMIN_PASSWORD=password"
@@ -72,3 +69,18 @@ services:
       - ./config/grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - prometheus
+
+  kafka-minion:
+    image: quay.io/cloudhut/kminion:v2.1.0
+    hostname: kafka-minion
+    container_name: kafka-minion
+    depends_on:
+      - kafka
+    ports:
+      - 8080:8080
+    environment:
+      KAFKA_BROKERS: kafka:29092
+      CONFIG_FILEPATH: /etc/kminion/config.yaml
+    restart: unless-stopped
+    volumes:
+      - ./config/kminion/config.yaml:/etc/kminion/config.yaml
