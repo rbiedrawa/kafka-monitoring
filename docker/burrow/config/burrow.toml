@@ -5,14 +5,14 @@ root-path="/burrow"
 
 [cluster.local]
 class-name="kafka"
-servers=[ "broker:29092" ]
+servers=[ "kafka:29092" ]
 topic-refresh=60
 offset-refresh=30
 
 [consumer.local]
 class-name="kafka"
 cluster="local"
-servers=[ "broker:29092" ]
+servers=[ "kafka:29092" ]
 group-denylist="^(console-consumer-|python-kafka-consumer-).*$"
 group-allowlist=""
 
