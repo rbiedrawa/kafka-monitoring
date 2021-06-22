@@ -21,6 +21,41 @@ Please refer to the individual readme files for further instructions how to buil
 
 **Available demos:**
 
+* [Confluent Platform Community Edition](docker/cp-community-monitoring)
+  <table>
+    <tr>
+      <td>Kafka Overview</td>
+       <td>Kafka Topics</td>
+       <td>Kafka Connect Overview</td>
+    </tr>
+    <tr>
+      <td><img src="./_docs/img/cp-kafka-overview.png" width="250" height="250"/></td>
+      <td><img src="./_docs/img/cp-kafka-topics.png" width="250" /> </td>
+      <td><img src="./_docs/img/cp-connect-overview.png" width="250" height="250" /></td>
+    </tr>
+   </table>
+  <table>
+    <tr>
+      <td>Schema Registry Overview</td>
+       <td>ksqldb Overview</td>
+       <td>Zookeeper Overview</td>
+    </tr>
+    <tr>
+      <td><img src="./_docs/img/cp-schema-registry-overview.png" width="250" /></td>
+      <td><img src="./_docs/img/cp-ksqldb-overview.png" width="250" /> </td>
+      <td><img src="./_docs/img/cp-zookeeper-overview.png" width="250" /></td>
+    </tr>
+   </table>
+
+  <table>
+    <tr>
+      <td>Kafka Lag Exporter</td>
+    </tr>
+    <tr>
+      <td><img src="./_docs/img/cp-kafka-lag-exporter.png" width="250" /></td>
+    </tr>
+   </table>
+  
 * [Burrow](./docker/burrow)
   <table>
     <tr>
@@ -59,8 +94,6 @@ Please refer to the individual readme files for further instructions how to buil
     </tr>
    </table>
 
-* [Confluent Platform Community Edition](docker/cp-community-monitoring)
-
 * [Kowl - Apache Kafka Web UI](./docker/kowl)
 
   <table>
@@ -87,8 +120,28 @@ Please refer to the individual readme files for further instructions how to buil
 
 ## References
 
+* [Monitoring Your Event Streams: Integrating Confluent with Prometheus and Grafana](https://www.confluent.io/blog/monitor-kafka-clusters-with-prometheus-grafana-and-confluent/)
 * [Prometheus](https://prometheus.io/)
-* [Grafana](https://grafana.com/)
+* [ksqlDB](https://github.com/confluentinc/ksql)
+* [Schema Registry](https://github.com/confluentinc/schema-registry)
+* [Kafka REST Proxy](https://github.com/confluentinc/kafka-rest)
+* [Kafka Connect](https://github.com/confluentinc/kafka-images/tree/master/kafka-connect)
+  
+* [Linkedin/Burrow](https://github.com/linkedin/Burrow)
+* [GeneralMills/BurrowUI](https://github.com/GeneralMills/BurrowUI)
+* [Joway/BurrowDashboard](https://github.com/joway/burrow-dashboard)
+
+* [Lightbend Kafka Lag Exporter](https://github.com/lightbend/kafka-lag-exporter)
+* [Kafka Lag Exporter Grafana Dashboard](https://github.com/lightbend/kafka-lag-exporter/blob/master/grafana/Kafka_Lag_Exporter_Dashboard.json)
+
+* [tchiotludo/akhq](https://github.com/tchiotludo/akhq)
+
+* [KMinion - Prometheus Exporter for Apache Kafka](https://github.com/cloudhut/kminion)
+* [KMinion Cluster Dashboard](https://grafana.com/grafana/dashboards/14012)
+* [KMinion Consumer Group Dashboard](https://grafana.com/grafana/dashboards/14014)
+* [KMinion Topic Dashboard](https://grafana.com/grafana/dashboards/14013)
+
+* [cloudhut/kowl](https://github.com/cloudhut/kowl)
 
 ## License
 
