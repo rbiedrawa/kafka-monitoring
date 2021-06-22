@@ -24,9 +24,9 @@ Grafana dashboards used in this demo can be found [here](./config/grafana/provis
        <td>Kafka Connect Overview</td>
     </tr>
     <tr>
-      <td><img src="./../../_docs/img/cp-kafka-overview.png" width="250" /></td>
+      <td><img src="./../../_docs/img/cp-kafka-overview.png" width="250" height="250"/></td>
       <td><img src="./../../_docs/img/cp-kafka-topics.png" width="250" /> </td>
-      <td><img src="./../../_docs/img/cp-connect-overview.png" width="250" /></td>
+      <td><img src="./../../_docs/img/cp-connect-overview.png" width="250" height="250" /></td>
     </tr>
    </table>
   <table>
