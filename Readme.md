@@ -59,7 +59,7 @@ Please refer to the individual readme files for further instructions how to buil
     </tr>
    </table>
 
-* [Confluent Platform Community Edition](./docker/cp-all-in-one-community)
+* [Confluent Platform Community Edition](docker/cp-community-monitoring)
 
 * [Kowl - Apache Kafka Web UI](./docker/kowl)
 

@@ -1,6 +1,6 @@
 # Kafka Lag Exporter - consumer lag monitoring demo.
 
-This sample demonstrates how to monitor consumer lag using `Kafka Lag Exporter` and visualize metrics via Grafana.
+This sample demonstrates how to monitor consumer lag using `Kafka Lag Exporter` and visualize metrics in Grafana dashboards.
 
 Grafana dashboard used in this demo can be found [here](./config/grafana/provisioning/dashboards)
 

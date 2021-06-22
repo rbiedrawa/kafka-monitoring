@@ -134,6 +134,18 @@ services:
     entrypoint: /bin/sh
     tty: true
 
+  kafka-monitoring-app:
+    image: com.rbiedrawa/kafka-monitoring:0.0.1-SNAPSHOT
+    container_name: kafka-monitoring-app
+    restart: always
+    depends_on:
+      - kafka
+    ports:
+      - 7777:7777
+    environment:
+      spring.profiles.active: docker
+      spring.kafka.bootstrap-servers: "kafka:29092"
+
   kafka-lag-exporter:
     image: lightbend/kafka-lag-exporter:0.6.7
     container_name: kafka-lag-exporter

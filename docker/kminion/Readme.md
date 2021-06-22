@@ -1,6 +1,6 @@
 # KMinion - monitoring demo.
 
-This sample demonstrates how to monitor Apache Kafka cluster using `KMinion` and visualize metrics via Grafana
+This sample demonstrates how to monitor Apache Kafka cluster using `KMinion` and visualize metrics in Grafana
 dashboards.
 
 Grafana dashboards used in this demo can be found [here](./config/grafana/provisioning/dashboards)
