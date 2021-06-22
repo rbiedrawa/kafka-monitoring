@@ -142,9 +142,12 @@ services:
       - kafka
     ports:
       - 7777:7777
+    volumes:
+      - ./config/jmx-exporter/:/opt/prometheus/
     environment:
-      spring.profiles.active: docker
+      spring.profiles.active: "cp_community_monitoring"
       spring.kafka.bootstrap-servers: "kafka:29092"
+      JAVA_OPTS: -javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.15.0.jar=9404:/opt/prometheus/kafka_streams.yml
 
   kafka-lag-exporter:
     image: lightbend/kafka-lag-exporter:0.6.7

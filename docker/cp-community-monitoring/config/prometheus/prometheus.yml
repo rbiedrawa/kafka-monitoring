@@ -51,3 +51,10 @@ scrape_configs:
         labels:
           env: "dev"
           cluster: "cluster1"
+
+  - job_name: "kafka-monitoring-app"
+    static_configs:
+      - targets:
+          - "kafka-monitoring-app:9404"
+        labels:
+          env: "dev"

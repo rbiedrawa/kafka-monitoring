@@ -45,9 +45,13 @@ Grafana dashboards used in this demo can be found [here](./config/grafana/provis
   <table>
     <tr>
       <td>Kafka Lag Exporter</td>
+      <td>Consumer Client Metrics</td>
+      <td>Producer Client Metrics</td>
     </tr>
     <tr>
       <td><img src="./../../_docs/img/cp-kafka-lag-exporter.png" width="250" /></td>
+      <td><img src="./../../_docs/img/cp-consumer-monitoring.png" width="250" /></td>
+      <td><img src="./../../_docs/img/cp-producer-monitoring.png" width="250" /></td>
     </tr>
    </table>
 
