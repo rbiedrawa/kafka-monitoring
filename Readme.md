@@ -1,6 +1,6 @@
 # Monitoring tools for Apache Kafka ecosystem (PoC)
 
-The goal of this example project is to demonstrate different approaches to monitor Apache Kafka ecosystem.
+The goal of this project is to demonstrate different approaches to monitor Apache Kafka ecosystem.
 
 ## Caution
 
@@ -142,6 +142,11 @@ Please refer to the individual readme files for further instructions how to buil
 * [KMinion Topic Dashboard](https://grafana.com/grafana/dashboards/14013)
 
 * [cloudhut/kowl](https://github.com/cloudhut/kowl)
+
+## Additional Links
+
+* [What is the State of my Kafka Streams Application? Unleashing Metrics](https://www.confluent.io/events/kafka-summit-europe-2021/what-is-the-state-of-my-kafka-streams-application-unleashing-metrics/)
+* [Monitoring Your Event Streams: Tutorial for Observability Into Apache Kafka Clients](https://www.confluent.io/blog/monitoring-event-streams-visualize-kafka-clients-in-confluent-cloud/)
 
 ## License
 
