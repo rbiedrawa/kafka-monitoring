@@ -74,6 +74,17 @@ Please refer to the individual readme files for further instructions how to buil
     </tr>
   </table>
 
+* [AKHQ (KafkaHQ) - Apache Kafka Web UI](./docker/kafkahq)
+
+  <table>
+    <tr>
+    <td>KafkaHQ</td>
+    </tr>
+    <tr>
+    <td><img src="./_docs/img/akhq.gif" width="250" /></td>
+    </tr>
+  </table>
+
 ## References
 
 * [Prometheus](https://prometheus.io/)
