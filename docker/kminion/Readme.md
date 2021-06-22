@@ -48,7 +48,7 @@ Grafana dashboards used in this demo can be found [here](./config/grafana/provis
   docker compose up -d
   ```
 
-* Check if all components are healthy.
+* Check if all components are running.
   ```shell
   docker compose ps
 

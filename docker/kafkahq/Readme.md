@@ -33,7 +33,7 @@ Web UI.
   docker compose up -d
   ```
 
-* Check if all components are healthy.
+* Check if all components are running.
   ```shell
   docker compose ps
   
