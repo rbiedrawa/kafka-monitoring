@@ -63,6 +63,17 @@ Please refer to the individual readme files for further instructions how to buil
 
 * [Kowl - Apache Kafka Web UI](./docker/kowl)
 
+  <table>
+    <tr>
+    <td>Kowl - Topics Page</td>
+    <td>Kowl - Consumer Groups</td>
+    </tr>
+    <tr>
+    <td><img src="./_docs/img/kowl-topics.png" width="250" /></td>
+    <td><img src="./_docs/img/kowl-consumer-groups.png" width="250" /> </td>
+    </tr>
+  </table>
+
 ## References
 
 * [Prometheus](https://prometheus.io/)
