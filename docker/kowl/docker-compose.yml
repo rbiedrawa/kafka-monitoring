@@ -10,10 +10,10 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
-  broker:
+  kafka:
     image: confluentinc/cp-kafka:6.2.0
-    hostname: broker
-    container_name: broker
+    hostname: kafka
+    container_name: kafka
     depends_on:
       - zookeeper
     ports:
@@ -23,9 +23,21 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  kafka-monitoring-app:
+    image: com.rbiedrawa/kafka-monitoring:0.0.1-SNAPSHOT
+    container_name: kafka-monitoring-app
+    restart: always
+    depends_on:
+      - kafka
+    ports:
+      - 7777:7777
+    environment:
+      spring.profiles.active: docker
+      spring.kafka.bootstrap-servers: "kafka:29092"
 
   kowl:
     image: quay.io/cloudhut/kowl:v1.3.1
@@ -34,6 +46,6 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - broker
+      - kafka
     environment:
-      KAFKA_BROKERS: "broker:29092"
+      KAFKA_BROKERS: "kafka:29092"
