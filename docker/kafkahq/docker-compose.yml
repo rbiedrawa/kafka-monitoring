@@ -98,6 +98,6 @@ services:
                   url: "http://connect:8083"
     ports:
       - 8080:8080
-    links:
+    depends_on:
       - kafka
       - schema-registry
