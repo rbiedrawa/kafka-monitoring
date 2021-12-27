@@ -1,6 +1,6 @@
 # Monitoring tools for Apache Kafka ecosystem (PoC)
 
-The goal of this project is to demonstrate different approaches to monitor Apache Kafka ecosystem.
+The goal of this project is to demonstrate different approaches how to monitor Apache Kafka ecosystem.
 
 ## Caution
 
