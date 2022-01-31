@@ -28,7 +28,7 @@ Grafana dashboards used in this demo can be found [here](./config/grafana/provis
 
 ## Getting Started
 
-### Prerequisite
+### Prerequisites
 
 * Java 11
 * Docker
