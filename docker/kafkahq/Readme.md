@@ -13,7 +13,7 @@ Web UI.
 
 ## Getting Started
 
-### Prerequisite
+### Prerequisites
 
 * Java 11
 * Docker
